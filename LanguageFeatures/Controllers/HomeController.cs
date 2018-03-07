@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using LanguageFeatures.Models;
+using System.Collections;
 
 namespace LanguageFeatures.Controllers
 {
@@ -10,7 +12,25 @@ namespace LanguageFeatures.Controllers
     {
         public ViewResult Index()
         {
-            return View(new string[] { "C#", "Language", "Features" });
+            object[] data = new object[]
+            {
+                275M, 29.95M, "apple","orange", 100, 10
+            };
+            decimal total = 0;
+            for (int i = 0; i < data.Length; i++)
+            {
+              switch (data[i])
+                {
+                    case decimal decimalValue:
+                        total += decimalValue;
+                        break;
+                    case int intValue when intValue > 50:
+                        total += intValue;
+                        break;
+
+                }
+            }
+            return View("Index", new string[] { $"Total: {total:c2}" });
         }
     }
 }
