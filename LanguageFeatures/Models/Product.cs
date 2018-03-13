@@ -14,7 +14,7 @@ namespace LanguageFeatures.Models
        
         public string Name { get; set; }
         public string Category { get; set; } = "Watersports";
-        public decimal? Price { get; set; }
+        public decimal? Cost { get; set; }
         public Product Related { get; set; }
         public bool InStock { get; } = true;
 
@@ -24,12 +24,12 @@ namespace LanguageFeatures.Models
             {
                 Name = "Kayak",
                 Category = "Water Craft",
-                Price = 275M
+                Cost = 275M
             };
             Product lifejacket = new Product
             {
                 Name = "lifejacket",
-                Price = 48.95M
+                Cost = 48.95M
             };
 
             kayak.Related = lifejacket;
